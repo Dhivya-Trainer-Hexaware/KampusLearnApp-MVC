@@ -1,0 +1,27 @@
+﻿@model IEnumerable<KampusLearnApp_MVC.Models.Trainer>
+
+
+
+
+
+    <h1>Trainers List</h1>
+
+
+    <table class="table table-bordered w-50">
+<tr>
+    <th>Trainer Id</th>
+    <th>Trainer Name</th>
+    <th>Skills</th>
+</tr>
+
+@foreach(Trainer item in Model)
+    {
+        <tr>
+            <td>@item.TrainerId</td>
+            <td>@item.TrainerName</td>
+            <td>@item.Skills</td>
+        </tr>
+    }
+
+
+</table>
