@@ -1,0 +1,28 @@
+﻿@model KampusLearnApp_MVC.Models.Trainer
+
+
+<form asp-action="AddNewTrainer" >
+
+    <input  placeholder="Enter The Trainer Name" asp-for=TrainerName />
+    <br/>
+    <br/>
+
+    <input placeholder="Enter Trainer Skills" asp-for=Skills/>
+    <br/>
+    <br/>
+
+    <input placeholder="Years od Experience" asp-for=YearsOfExperience/>
+    <br/>
+    <br/>
+
+    <input placeholder="Trainer Email" asp-for=Email/> <br/>
+    <br/>
+
+    <input placeholder="Trainer Contact" asp-for=Contact/>
+    <br/>
+    <br/>
+
+    <input type="submit" class="btn btn-secondary"/>
+
+
+</form>

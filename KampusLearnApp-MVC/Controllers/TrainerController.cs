@@ -13,6 +13,8 @@ namespace KampusLearnApp_MVC.Controllers
         {
             this.dbContext = dbContext;
         }
+       
+        [HttpGet]
         public IActionResult Index()
         {
             List<Trainer> trainers = dbContext.Trainers.ToList();
@@ -20,5 +22,37 @@ namespace KampusLearnApp_MVC.Controllers
             //passing the data from a controller to View Using Models
             return View(trainers);
         }
+        [HttpGet]
+        public IActionResult GetTrainerDetail(int trainerID)
+        {
+            Trainer trainer = dbContext.Trainers.Find(trainerID);
+            return View(trainer);
+        }
+
+        [HttpGet]
+        public IActionResult DeleteTrainer(int trainerId)
+        {
+            Trainer trainer = dbContext.Trainers.Find(trainerId);
+            dbContext.Trainers.Remove(trainer);//Delete query to delete the row
+            dbContext.SaveChanges();// Execute the sql query.
+            return RedirectToAction("Index");
+
+
+        }
+
+        [HttpGet]
+        public IActionResult AddNewTrainer()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddNewTrainer(Trainer trainer)
+        {
+            dbContext.Trainers.Add(trainer);
+            dbContext.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }

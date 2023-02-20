@@ -1,9 +1,6 @@
 ﻿@model IEnumerable<KampusLearnApp_MVC.Models.Trainer>
 
 
-
-
-
     <h1>Trainers List</h1>
 
 
@@ -12,16 +9,37 @@
     <th>Trainer Id</th>
     <th>Trainer Name</th>
     <th>Skills</th>
+    <th>Action</th>
 </tr>
 
 @foreach(Trainer item in Model)
     {
         <tr>
             <td>@item.TrainerId</td>
-            <td>@item.TrainerName</td>
+            <td>  
+
+            <a asp-action="GetTrainerDetail" asp-controller="Trainer" asp-route-trainerID=@item.TrainerId>   
+
+                @item.TrainerName
+
+            </a>    
+                
+                
+            </td>
             <td>@item.Skills</td>
+            <td> 
+
+                <a  asp-asp-controller="Trainer" asp-action="DeleteTrainer"asp-route-trainerId=@item.TrainerId class="btn btn-danger">Delete</a>
+
+            </td>
         </tr>
     }
 
 
 </table>
+
+<br/>
+<br/>
+
+<a asp-action="AddNewTrainer" class="btn btn-warning">Add New Trainer</a>
+

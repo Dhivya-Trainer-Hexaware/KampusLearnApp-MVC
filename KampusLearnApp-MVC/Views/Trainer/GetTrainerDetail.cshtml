@@ -1,0 +1,19 @@
+﻿@model KampusLearnApp_MVC.Models.Trainer
+
+
+<div class="card">
+    <div class="card-header">
+        <h2>@Model.TrainerName</h2>
+    </div>
+    <div class="card-body">
+        <img classs="card-img" src="/images/Trainer.png" alt="Trainer"/>
+        <h4>Trainer Skills : @Model.Skills</h4>
+        <h4> Trainer Experience : @Model.YearsOfExperience</h4>
+        <h4> Trainer Email : @Model.Email</h4>
+    </div>
+    <div class="card-footer">
+      <a    asp-controller="Trainer" asp-action="Index"   class="btn-primary btn">Back To List</a>
+    </div>
+</div>
+
+
