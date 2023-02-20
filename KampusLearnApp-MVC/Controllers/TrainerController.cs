@@ -17,6 +17,7 @@ namespace KampusLearnApp_MVC.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+         
             List<Trainer> trainers = dbContext.Trainers.ToList();
 
             //passing the data from a controller to View Using Models
@@ -49,9 +50,16 @@ namespace KampusLearnApp_MVC.Controllers
         [HttpPost]
         public IActionResult AddNewTrainer(Trainer trainer)
         {
-            dbContext.Trainers.Add(trainer);
-            dbContext.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                dbContext.Trainers.Add(trainer);
+                dbContext.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
         }
 
     }

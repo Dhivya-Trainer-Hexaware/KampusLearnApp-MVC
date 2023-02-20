@@ -3,9 +3,14 @@
 
 <form asp-action="AddNewTrainer" >
 
+    <div asp-validation-summary="ModelOnly"></div>
+
     <input  placeholder="Enter The Trainer Name" asp-for=TrainerName />
     <br/>
+      <span asp-validation-for=TrainerName class="text-danger" ></span>
     <br/>
+  
+
 
     <input placeholder="Enter Trainer Skills" asp-for=Skills/>
     <br/>
